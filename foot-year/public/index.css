@@ -1,0 +1,28 @@
+#main{
+    background-color: aliceblue;
+    width: 100vw;
+    height: 100vh;
+
+}
+.rdimg{
+    margin: auto;
+    display: flex;
+}
+.rdimg img{
+    width: 70%;
+}
+.footer{
+    position: absolute;
+    bottom: 350px;
+    background-color: cyan;
+    width: 100%;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.img img{
+    width: 300px;
+    height: 200px;
+}
