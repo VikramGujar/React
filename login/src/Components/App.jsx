@@ -1,15 +1,19 @@
 import React from "react";
-import Form from "./Form";
+import RegistLog from "./Register";
 
-var logIn = true;
+var logIn = false;
 console.log(logIn)
+
+let nowTime = new Date().getHours();
+console.log(nowTime);
 
 
 function App(){
     return (
         <div>
-            {logIn?<Form />:<h1>Hello</h1> } 
-            
+            <RegistLog isRegister = {logIn}
+            />  
+            {nowTime>23 && alert("Why you are still working go to sleep")}                                    
         </div>
     )
 }
