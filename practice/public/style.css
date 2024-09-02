@@ -1,0 +1,82 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Table Styles */
+table {
+    width: 80%;
+    max-width: 800px;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Table Header Styles */
+th {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-size: 18px;
+}
+
+/* Table Body Styles */
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    font-size: 16px;
+}
+
+/* Table Row Hover Effect */
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* First Column Alignment */
+td:first-child {
+    font-weight: bold;
+}
+
+/* Specification Cell Styling */
+.specification {
+    display: flex;
+    flex-direction: column;
+}
+
+.spec-heading {
+    font-weight: bold;
+    color: #4CAF50;
+    margin-top: 5px;
+}
+
+.specification div:not(.spec-heading) {
+    margin-left: 10px;
+}
+
+/* Alternating Row Colors */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Responsive Table */
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+    
+    th, td {
+        font-size: 14px;
+        padding: 8px 10px;
+    }
+}
+
