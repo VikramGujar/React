@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Form from "./Form";
 
 
 function App (){
@@ -6,10 +7,16 @@ function App (){
     const [subTextColor , setSubTextColor] = useState(false);
     const [isMouseIn, setMouseIn] = useState(false)
     const [userName, setUserName] = useState ("");
+    const [userLastName, setLastName] = useState("");
 
-    function inputChange(event){
+    function inputChangeFname(event){
         console.log(event.target.value);
         setUserName(event.target.value);
+    }
+
+    function inputChangeLname (event){
+        console.log(event.target.value);
+        setLastName(event.target.value);
     }
 
     function mouseEnter(){
@@ -20,13 +27,14 @@ function App (){
     }
 
     function submitName(event){
-        setSubmit(`Hello ! ${userName}`);
+        setSubmit(`Hello ! ${userName} ${userLastName}`);
         setSubTextColor(true);
 
         event.preventDefault();
     }
    
     return (
+        <div className="main-div">
         <div className="container">
             <h1 
                 style={{color:subTextColor?"green":"black"}}>
@@ -35,9 +43,18 @@ function App (){
         <form onSubmit={submitName}>
             <input 
                 type="text" 
-                placeholder="Your name" 
-                onChange={inputChange}
+                placeholder="Your first name" 
+                onChange={inputChangeFname}
                 className="input-box"
+                value={userName}
+            />
+
+            <input 
+                type="text" 
+                placeholder="Your last name" 
+                onChange={inputChangeLname}
+                className="input-box"
+                value={userLastName}
             />
 
             <button 
@@ -49,6 +66,10 @@ function App (){
             </button>
         </form>
         </div>
+        <Form />
+        </div>
+        
+        
     )
 }
 
