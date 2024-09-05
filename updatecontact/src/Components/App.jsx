@@ -3,11 +3,10 @@ import Form from "./Form";
 
 
 function App(){
-    return (
+    return(
         <div>
-            <Form />
+            <Form/>
         </div>
-    )
+    );
 }
-
 export default App;

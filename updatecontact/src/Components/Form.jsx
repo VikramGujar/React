@@ -3,25 +3,34 @@ import React, { useState } from "react";
 
 function Form() {
 
-    const [fullName,setFullName] = useState({
+    const [contact,setContact] = useState({
         fName : "",
-        LName : ""
-    })
+        lName : "",
+        eMail : ""
+    });
 
     function handleInput(event){
-        const [name,value] = event.taget;
+        const {name,value} = event.target;
 
-        setFullName(prevValue=>{
+        setContact(prevValue => {
             if(name === "fname"){
                 return {
                     fName : value,
-                    LName : prevValue.LName
-                }
+                    lName : prevValue.lName,
+                    eMail : prevValue.eMail
+                };
             }else if(name === "lname"){
                 return {
                     fName : prevValue.fName,
-                    LName : value
-                }
+                    lName : value,
+                    eMail : prevValue.eMail
+                };
+            }else if(name === "eMail"){
+                return {
+                    fName : prevValue.fName,
+                    lName : prevValue.lName,
+                    eMail : value
+                };
             }
         })
 
@@ -38,7 +47,7 @@ function Form() {
                     placeholder="Enter first name"
                     className="input-box"
                     onChange={handleInput}
-                    value={fullName.fName}
+                    // value={contact.fName}
                 />
 
 
@@ -48,7 +57,16 @@ function Form() {
                     placeholder="Enter last name"
                     className="input-box"
                     onChange={handleInput}
-                    value={fullName.LName}
+                    // value={contact.lName}
+                />
+
+                    <input
+                    type="text"
+                    name="eMail"
+                    placeholder="Enter last name"
+                    className="input-box"
+                    onChange={handleInput}
+                    // value={contact.eMail}
                 />
 
                 <button
@@ -56,7 +74,8 @@ function Form() {
                 >Submit</button>
             </form>
             <div>
-            <h1>Hello! {fullName.fName} {fullName.LName}</h1>
+            <h1>Hello! {contact.fName} {contact.lName}</h1>
+            <p>{contact.eMail}</p>
             </div>
         </div>
     )
