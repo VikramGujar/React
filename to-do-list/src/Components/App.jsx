@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import ListItem from "./ListItem";
+import InputArea from "./InputArea";
 
 function App (){
     const [toDoInput,setInput] = useState("")
@@ -15,28 +16,33 @@ function App (){
     })
     setInput("")
 } 
-    
+    function deleteItem(id){
+        return (
+            setTasks(prevValue => {
+                return prevValue.filter((Item,index) => {
+                    return index !==id
+                })
+            })
+        )
+    }
 
 
 
     return(
         <div className="main-div">
             <h1>To-Do-List</h1>
-            <input 
-            type="text"
-            name="task"
-            placeholder="Add your task"
-            onChange={handleInput}
-            value={toDoInput}
+            <InputArea 
+            changeInp = {handleInput}
+            takenInput = {toDoInput}
+            addButton = {handleAdd}
             />
-
-            <button
-            onClick={handleAdd}
-            >Add</button>
         <ul>
                 {allTasks.map(
-                entryItem => 
-                <ListItem 
+                (entryItem,index) => 
+                <ListItem
+                key = {index}
+                id = {index}
+                taskDone = {deleteItem} 
                 newTask = {entryItem}
                 />)}
         </ul>

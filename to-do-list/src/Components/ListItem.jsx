@@ -1,22 +1,14 @@
-import React, {useState} from "react";
+import React from "react";
 
 
 function ListItem(props){
-    const [isTaskDone,setTaskDone] = useState(false)
-
-
-
-    function taskDone(){
-        setTaskDone( prevValue => {
-            return !prevValue;
-        })
-    }
     return(
         
             <div>
                     <li
-                    onClick={taskDone}
-                    style={{textDecoration:isTaskDone?"line-through":"none"}}
+                    onClick={() =>{
+                        props.taskDone(props.id)
+                    }}
                     >{props.newTask}</li>
             </div>
         
